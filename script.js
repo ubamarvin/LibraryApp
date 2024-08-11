@@ -15,10 +15,32 @@ function addBookToLibrary(book) {
 // ExampleBooks
 
 const Musashi = new Book("Musashi", "Eli Yoshikawa", 700, true);
-const AnnaKarenia = new Book("Anna-Karenia", "Leo Tolstoi", 1200, false);
+const AnnaKarenia = new Book("Anna-Karenia1", "Leo Tolstoi", 1200, false);
+const AnnaKarenia2 = new Book("Anna-Karenia2", "Leo Tolstoi", 1200, false);
+const AnnaKarenia3 = new Book("Anna-Karenia3", "Leo Tolstoi", 1200, false);
+const AnnaKarenia4 = new Book("Anna-Karenia4", "Leo Tolstoi", 1200, false);
+const AnnaKarenia5 = new Book("Anna-Karenia5", "Leo Tolstoi", 1200, false);
+const AnnaKarenia6 = new Book("Anna-Karenia6", "Leo Tolstoi", 1200, false);
+const AnnaKarenia7 = new Book("Anna-Karenia7", "Leo Tolstoi", 1200, false);
+const AnnaKarenia8 = new Book("Anna-Karenia8", "Leo Tolstoi", 1200, false);
+const AnnaKarenia9 = new Book("Anna-Karenia9", "Leo Tolstoi", 1200, false);
+const AnnaKarenia10 = new Book("Anna-Karenia10", "Leo Tolstoi", 1200, false);
+const AnnaKarenia11 = new Book("Anna-Karenia11", "Leo Tolstoi", 1200, false);
+
 
 addBookToLibrary(Musashi);
 addBookToLibrary(AnnaKarenia);
+addBookToLibrary(AnnaKarenia2);
+addBookToLibrary(AnnaKarenia3);
+addBookToLibrary(AnnaKarenia4);
+addBookToLibrary(AnnaKarenia5);
+addBookToLibrary(AnnaKarenia6);
+addBookToLibrary(AnnaKarenia7);
+addBookToLibrary(AnnaKarenia8);
+addBookToLibrary(AnnaKarenia9);
+addBookToLibrary(AnnaKarenia10);
+addBookToLibrary(AnnaKarenia11);
+
 
 //display Books in Document
 
