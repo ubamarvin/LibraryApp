@@ -2,6 +2,7 @@ const myLibrary = [];
 const addBookBtn = document.querySelector(".addBook");
 const modal = document.querySelector(".modal")
 const modalAdd = document.querySelector(".addBook")
+const bookContainerDiv = document.querySelector(".Book-container");
 
 function Book(title, author, pages, isRead) {
     this.title = title;
@@ -66,11 +67,10 @@ addBookToLibrary(AnnaKarenia11);
 
 //display Books in Document
 
-const bookContainerDiv = document.querySelector(".Book-container");
 
 function displayBooks ()  {
-
-    myLibrary.forEach(book => {
+    bookContainerDiv.innerHTML =""
+    myLibrary.reverse().forEach(book => {
         // get the vars for convinience
     const title = book.title
     const author = book.author
