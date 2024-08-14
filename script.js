@@ -1,4 +1,7 @@
 const myLibrary = [];
+const addBookBtn = document.querySelector(".addBook");
+const modal = document.querySelector(".modal")
+const modalAdd = document.querySelector(".addBook")
 
 function Book(title, author, pages, isRead) {
     this.title = title;
@@ -11,6 +14,25 @@ function addBookToLibrary(book) {
     myLibrary.push(book)
 }
 
+addBookBtn.addEventListener("click", (e)=> {
+    modal.style.display = "block";
+});
+
+const form = document.getElementById("bookForm");
+form.addEventListener("submit",(e)=> {
+    e.preventDefault()
+    const title = document.querySelector("#title").value;
+    const author = document.querySelector("#author").value;
+    const pages = document.querySelector("#pages").value;
+    const isRead = document.querySelector("#isRead").checked;
+
+
+    const newBook = new Book(title, author, pages, isRead);
+    addBookToLibrary(newBook);
+    displayBooks();
+    modal.style.display = "none";
+    form.reset();
+})
 
 // ExampleBooks
 
@@ -46,34 +68,78 @@ addBookToLibrary(AnnaKarenia11);
 
 const bookContainerDiv = document.querySelector(".Book-container");
 
-myLibrary.forEach(book => {
-    // get the vars for convinience
+function displayBooks ()  {
+
+    myLibrary.forEach(book => {
+        // get the vars for convinience
     const title = book.title
     const author = book.author
     const pages = book.pages
     const readingStatus = book.isRead
     
+    const bookDiv = document.createElement("div")
+    const buttonDiv = document.createElement("div")
+    buttonDiv.classList.add("buttonDiv")
+
+    const deleteBookBtn = document.createElement("button");
+    deleteBookBtn.classList.add("deleteBtn")
+    deleteBookBtn.textContent ="Remove"
+    deleteBookBtn.addEventListener("click",(e) =>{
+        e.target.parentElement.parentElement.remove()
+    } )
+
+    const toggleStatusBtn = document.createElement("button");
+    toggleStatusBtn.classList.add("statusBtn")
+    let status = readingStatus? "not read": "read"
+    toggleStatusBtn.textContent = status;
+
+    toggleStatusBtn.addEventListener("click", (e) => {
+        const field = e.target.parentElement.parentElement.querySelector(".isRead")
+        field.textContent = field.textContent === "Read: yes" ? "Read: no" : "Read: yes"
+    toggleStatusBtn.textContent = field.textContent === "Read: yes" ? "Unread" : "read"
+
+
+    })
+
     
     // create Book card
-    const bookDiv = document.createElement("div")
+    bookDiv.classList.add("card")
     bookDiv.classList.add(title)
-    bookDiv.style.flex = "1 1 0"
-    bookDiv.style.maxWidth = "200px"
-    bookDiv.style.maxHeight = "200px"
-    bookDiv.style.border = "2px solid black"
-    bookDiv.style.margin = "10px"
-
+    
+    
     //create Text for Book card
-    const info = document.createElement("p")
-    info.textContent += title
-    //...ad more info...
+    const titleParagraph = document.createElement("p");
+    titleParagraph.textContent = `Title: ${book.title}`;
 
+    const authorParagraph = document.createElement("p");
+    authorParagraph.textContent = `Author: ${book.author}`;
+
+    const pagesParagraph = document.createElement("p");
+    pagesParagraph.textContent = `Pages: ${book.pages}`;
+
+    const readStatusParagraph = document.createElement("p");
+    readStatusParagraph.classList.add("isRead")
+    readStatusParagraph.textContent = `Read: ${book.isRead ? "Yes" : "No"}`;
+
+    // Append each paragraph to the bookDiv
+    bookDiv.appendChild(titleParagraph);
+    bookDiv.appendChild(authorParagraph);
+    bookDiv.appendChild(pagesParagraph);
+    bookDiv.appendChild(readStatusParagraph);
+
+    
     //add info to div
-    bookDiv.appendChild(info)
+    buttonDiv.appendChild(deleteBookBtn)
+    buttonDiv.appendChild(toggleStatusBtn)
 
-
+    bookDiv.appendChild(buttonDiv)
+    
+    
     //add div to bookContainerDiv
     bookContainerDiv.appendChild(bookDiv)
 });
+}
+
+displayBooks();
 
 

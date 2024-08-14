@@ -1,3 +1,18 @@
+* {
+    box-sizing: border-box;
+}
+
+.modal {
+    display: none;
+    position: absolute;
+    background-color: hsla(41, 100%, 48%, 0.7);
+    top: 20%;
+    right: 50%;
+    padding: 25px;
+
+}
+.modal-content {}
+
 body {
     font-family: 'Courier New', Courier, monospace;
     display:flex;
@@ -5,23 +20,81 @@ body {
     margin: 0;
     padding: 0;
     height: 100vh;
+    background-color: hsl(46, 75%, 51%);
 }
 .header {
     margin: 0px;
-    background: grey;
-    border-bottom: 1px solid #ddd;
-    box-shadow: 0 0 8px rgba(0,0,0,.1);
-
-    border-radius: 10px;
+    background-color: hsla(323, 50%, 36%, 0.2);
+    box-shadow: 0 0 20px rgba(0,0,0,.1);
     height: 10%;
     max-width: 100%;
+    font-size: 2.5rem;
+    text-align: center;
+    padding: 20px;
+    color: grey;
+
 
 }
 
+.Book-container >:hover {
+    background-color: hsla(323, 100%, 36%, 0.2);
+}
+
+
+.card {
+    background-color: hsla(323, 50%, 36%, 0.2);
+    flex: 1 1 0;
+    min-width: 200px;
+    max-width: 250px;
+    min-height: 300px;
+    max-height: 350px;
+    margin: 50px;
+    border-radius: 10px;
+    font-size: 100%;
+    color: rgba(97, 90, 190, 0.952);
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.card > p {
+    margin: 0px;
+    padding: 10px;
+}
+
+.buttonDiv {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.deleteBtn, .statusBtn {
+    align-self: center;
+    font-size: 1.2rem;
+    max-width: 50%;
+    margin-bottom: 10px;
+    background-color: hsla(323, 50%, 36%, 0.1);
+    border: 0px;
+
+
+}
+
+.deleteBtn:hover, .statusBtn:hover {
+    align-self: center;
+    font-size: 1.2rem;
+    max-width: 52%;
+    margin-bottom: 10px;
+    background-color: hsla(27, 81%, 46%, 0.9);
+    border: 0px;
+
+
+}
 .Book-container {
     display:flex;
     flex-wrap: wrap;
     height: 90vh;
     width: 100%;
+    padding: 20px;
 
 }
