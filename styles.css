@@ -43,18 +43,10 @@ body {
 
 .card {
     background-color: hsla(323, 50%, 36%, 0.2);
-    flex: 1 1 0;
-    min-width: 200px;
-    max-width: 250px;
-    min-height: 300px;
-    max-height: 350px;
-    margin: 50px;
     border-radius: 10px;
     font-size: 100%;
     color: rgba(97, 90, 190, 0.952);
-
-    display: flex;
-    flex-direction: column;
+    height: 250px;
     justify-content: space-between;
 }
 
@@ -91,10 +83,12 @@ body {
 
 }
 .Book-container {
-    display:flex;
-    flex-wrap: wrap;
     height: 90vh;
     width: 100%;
     padding: 20px;
+    display:grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-template-rows: repeat(auto-fit, minmax(250px, 250px));
+    gap: 20px;
 
 }
